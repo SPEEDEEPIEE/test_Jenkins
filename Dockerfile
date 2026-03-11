@@ -1,8 +1,8 @@
 # Используем официальный PHP-образ с Apache
-FROM php:8.2-apache
+FROM docker.io/library/php:8.2-apache
 
 # Копируем код приложения в контейнер
-COPY src/ /var/www/html/
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 # Включаем mod_rewrite для Apache (может понадобиться для Laravel)
 RUN a2enmod rewrite
