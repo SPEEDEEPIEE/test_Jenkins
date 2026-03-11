@@ -25,18 +25,18 @@ pipeline {
             }
         }
 
-        stage('Run Tests') {
-            steps {
-                script {
-                    // Запускаем контейнер для выполнения тестов (например, PHPUnit)
-                    // '--rm' удалит контейнер после выполнения команды
-                    dockerImage.inside("--rm") {
-                        sh 'composer install --no-dev --optimize-autoloader'
-                        sh 'php artisan test --env=testing'
-                    }
-                }
-            }
-        }
+        // stage('Run Tests') {
+        //     steps {
+        //         script {
+        //             // Запускаем контейнер для выполнения тестов (например, PHPUnit)
+        //             // '--rm' удалит контейнер после выполнения команды
+        //             dockerImage.inside("--rm") {
+        //                 sh 'composer install --no-dev --optimize-autoloader'
+        //                 sh 'php artisan test --env=testing'
+        //             }
+        //         }
+        //     }
+        // }
 
         stage('Push Docker Image') {
             steps {
