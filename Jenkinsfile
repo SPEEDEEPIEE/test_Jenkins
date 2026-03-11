@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         // Имя вашего образа в Docker Hub
-        DOCKER_IMAGE = '23038/my-laravel-app'
+        def DOCKER_IMAGE = '23038/my-laravel-app'
         // Используем учетные данные, которые мы добавили ранее
         DOCKER_CREDENTIALS_ID = 'docker-hub-credentials'
     }
