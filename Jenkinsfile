@@ -60,7 +60,7 @@ pipeline {
                     sh 'docker stop my-running-app || true'
                     sh 'docker rm my-running-app || true'
                     // 2. Запускаем новый контейнер из только что собранного образа
-                    sh "docker run -d -p 8080:80 --name my-running-app ${env.DOCKER_IMAGE}:${env.BUILD_ID}"
+                    sh "docker run -d -p 8082:80 --name my-running-app ${env.DOCKER_IMAGE}:${env.BUILD_ID}"
                 }
             }
         }
